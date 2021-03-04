@@ -62,7 +62,7 @@ const Text = styled.p`
 `;
 
 /**
- * Used to highlight key pieces of information to the user.
+ * Highlights key pieces of information to the user.
  */
 export const Alert = ({ kind = "info", children }) => (
   <Wrapper kind={kind}>
@@ -76,6 +76,8 @@ export const Alert = ({ kind = "info", children }) => (
 );
 
 Alert.propTypes = {
-  kind: PropTypes.oneOf(["info", "success", "error"]),
+  kind: PropTypes.oneOf(["info", "error", "success"]),
+
+  /** The alert message. */
   children: PropTypes.node.isRequired,
 };

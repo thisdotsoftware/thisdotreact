@@ -4,7 +4,7 @@ import {
   Description,
   ArgsTable,
 } from "@storybook/addon-docs/blocks";
-import { Alert } from "../components/Alert/Alert";
+import { Alert } from "../../components/Alert/Alert";
 
 <Meta title="Atoms/Alert" component={Alert} />
 
@@ -20,14 +20,14 @@ export const Template = (args) => <Alert {...args} />;
 
 <Story
   name="Info"
-  args={{ kind: "info", children: "A piece of useful information" }}
+  args={{ kind: "info", children: "A piece of useful information." }}
 >
   {Template.bind({})}
 </Story>
 
 ## Error
 
-<Story name="Error" args={{ kind: "error", children: "An error message" }}>
+<Story name="Error" args={{ kind: "error", children: "An error message." }}>
   {Template.bind({})}
 </Story>
 

@@ -1,6 +1,6 @@
 // Components
 export { Alert } from "./components/Alert/Alert";
-export { default as Button } from "./components/Button/Button";
+export { Button } from "./components/Button/Button";
 export { default as Footer } from "./components/Footer";
 export { default as FormInput } from "./components/Form/FormInput";
 export { default as Header } from "./components/Header/Header";

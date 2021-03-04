@@ -1,0 +1,30 @@
+import {
+  Meta,
+  Story,
+  Description,
+  ArgsTable,
+} from "@storybook/addon-docs/blocks";
+import { Button } from "../../components/Button/Button";
+
+<Meta
+  title="Atoms/Button"
+  component={Button}
+  argTypes={{
+    onClick: { action: "clicked" },
+    "...rest": { table: { disable: true } },
+  }}
+/>
+
+export const Template = (args) => <Button {...args} />;
+
+# Buttons
+
+<Description of={Button} />
+
+<ArgsTable of={Button} />
+
+## Primary
+
+<Story name="Primary" args={{ children: "Click me!" }}>
+  {Template.bind({})}
+</Story>
