@@ -16,12 +16,12 @@
   "sideEffects": false,
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build:storybook": "build-storybook",
+    "build:storybook": "build-storybook -o ./public --docs",
     "test": "jest --watch",
     "test:ci": "jest",
     "lint": "eslint ./src/",
     "format": "prettier --write .",
-    "deploy": "yarn build:storybook && firebase deploy"
+    "deploy": "yarn build:storybook && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

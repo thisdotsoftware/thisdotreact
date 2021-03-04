@@ -15,3 +15,5 @@ jobs:
           node-version: "12.x"
       - run: yarn install
       - run: yarn publish
+
+      # firebase target:apply hosting storybook thisdotreact
