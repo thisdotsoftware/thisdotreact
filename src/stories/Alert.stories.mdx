@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Story,
+  Description,
+  ArgsTable,
+} from "@storybook/addon-docs/blocks";
+import { Alert } from "../components/Alert/Alert";
+
+<Meta title="Atoms/Alert" component={Alert} />
+
+export const Template = (args) => <Alert {...args} />;
+
+# Alerts
+
+<Description of={Alert} />
+
+<ArgsTable of={Alert} />
+
+## Info
+
+<Story
+  name="Info"
+  args={{ kind: "info", children: "A piece of useful information" }}
+>
+  {Template.bind({})}
+</Story>
+
+## Error
+
+<Story name="Error" args={{ kind: "error", children: "An error message" }}>
+  {Template.bind({})}
+</Story>
+
+## Success
+
+<Story
+  name="Success"
+  args={{ kind: "success", children: "A success message!" }}
+>
+  {Template.bind({})}
+</Story>

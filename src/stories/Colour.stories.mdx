@@ -1,0 +1,100 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Colour" />
+
+# Colours
+
+All of our colours are saved in CSS variables, allowing us to support multiple
+brands and special colour schemes such as dark mode and high-contrast.
+
+## Primary
+
+<ColorBlock
+  colours={[
+    "--color-primary-main",
+    "--color-primary-100",
+    "--color-primary-200",
+    "--color-primary-300",
+    "--color-primary-400",
+  ]}
+/>
+
+## Accent colours
+
+<ColorBlock
+  colours={["--color-yellow-main", "--color-yellow-100", "--color-yellow-200"]}
+/>
+
+<ColorBlock
+  colours={[
+    "--color-blue-main",
+    "--color-blue-100",
+    "--color-blue-200",
+    "--color-blue-300",
+  ]}
+/>
+
+<ColorBlock
+  colours={[
+    "--color-green-main",
+    "--color-green-100",
+    "--color-green-200",
+    "--color-green-300",
+  ]}
+/>
+
+<ColorBlock
+  colours={[
+    "--color-red-main",
+    "--color-red-100",
+    "--color-red-200",
+    "--color-red-300",
+  ]}
+/>
+
+## Grey scale
+
+<ColorBlock
+  colours={[
+    "--color-grey-main",
+    "--color-grey-100",
+    "--color-grey-200",
+    "--color-grey-300",
+    "--color-grey-400",
+  ]}
+/>
+
+## Neutral
+
+<ColorBlock colours={["--color-black", "--color-white"]} />
+
+export const ColorBlock = ({ colours }) => (
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "20px",
+      marginBottom: "20px",
+      marginTop: "15px",
+    }}
+  >
+    {colours.map((colour) => (
+      <div key={colour}>
+        <div
+          style={{
+            width: "100%",
+            minWidth: "150px",
+            height: "45px",
+            background: `var(${colour})`,
+            marginBottom: "5px",
+            border:
+              colour === "--color-white"
+                ? "1px solid var(--color-grey-300)"
+                : "0px",
+          }}
+        />
+        <span>{colour}</span>
+      </div>
+    ))}
+  </div>
+);
