@@ -1,85 +1,71 @@
-# this.react
+<h1>this.react</h1>
 
-this.react is a React component library created by this.software to power our
-customer and colleague experiences, including Cheapskate.
+<p>
+  <img src="https://img.shields.io/badge/-GitHub%20packages-blue" alt="hosted on GitHub Packages" />
 
-- [Running the project locally](#running-the-project-locally)
-- [Unit testing](#unit-testing)
-- [Linting and formatting](#linting-and-formatting)
-- [Deploying](#deploying)
+  <a href="https://thisdotreact.web.app">
+    <img src="https://img.shields.io/badge/-Storybook-blue" alt="documented using Storybook" />
+  </a>
+</p>
 
-## Running the project locally
+this.react is a React component library created by [this.software] to power the
+customer and colleague web experiences across all of our brands, including
+[Cheapskate] and [this.software].
 
-In development mode, install the packages and start the dev server. You can
-access the app at `http://localhost:3000`:
+- [Installing](#installing)
+- [Using](#using)
 
-```sh
-yarn
-yarn start
-```
+## Installing
 
-In production mode, install the packages, build the files then use a server to
-serve them. You can access the app at `http://localhost:8080` (depends on your
-server of choice):
+You must be a member of our [GitHub organisation], have a [personal access token]
+with the `read:packages` scope, and have an `.npmrc` file in your project that
+is setup for the GitHub package registry. See the [GitHub packages guide] for
+full instructions.
 
-```sh
-yarn
-yarn build
-
-npx http-server ./public
-```
-
-Or you can use Docker. You can access the app at `http://localhost:8080`.
+Run the install command.
 
 ```sh
-docker build -t cheapskate-tools .
-docker run -p 8080:8080 cheapskate-tools
+yarn add @thisdotsoftware/react
 ```
 
-## Unit testing
+## Using
 
-To run the tests in watch mode:
+Our components are all documented individually in [Storybook], so head over
+there for a full list of our components and how to use them. Here's a quick
+example using our Alert component:
 
-```sh
-yarn
-yarn test
+```js
+import { Alert } from "@thisdotsoftware/react";
+
+const YourReactComponent = () => <Alert kind="info">Hello, world!</Alert>;
 ```
 
-To run the tests without watch mode:
+We expose the library in two formats: CommonJS and ESM. Modern bundlers will
+use ESM by default, so you'll need to make sure your bundler knows how to parse
+JSX.
 
-```
-sh
-yarn test:ci
-```
+For example, if using webpack and babel you'll need to make sure your project
+has a `babel.config.js` file (not `.babelrc`!) and your webpack config runs
+any `@thisdotsoftware` files through the `babel-loader:
 
-## Linting and formatting
-
-We're using ESLint to detect code problems, and prettier to format code. Highly
-recommend you enable your editor's "format on save" option to automatically
-run prettier every time you save a file.
-
-```sh
-yarn lint
-yarn lint --fix
-yarn format
-```
-
-## Deploying
-
-Pushing to `main` will automatically deploy the app.
-
-If you want to deploy locally, you'll need my firebase credentials, which isn't
-going to happen. Or you can deploy to your own firebase!
-
-1. Create a firebase account and create an app
-2. Globally install the `firebase-tools` package
-3. Run `firebase login`
-4. Create a `.firebaserc` file with your project ID:
-
-```json
+```js
 {
-  "projects": {
-    "default": "app-95b1e"
-  }
-}
+  test: /\.js$/,
+  use: "babel-loader",
+},
+{
+  test: /\.js$/,
+  include: [/@thisdotsoftware/],
+  use: "babel-loader",
+},
 ```
+
+We also recommend looking at tree shaking for your bundler, so you aren't
+bundling any components that you aren't using.
+
+[cheapskate]: https://cheapskate.io
+[this.software]: https://this.software
+[storybook]: https://thisdotreact.web.app
+[github organisation]: https://github.com/thisdotsoftware
+[github packages guide]: https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package
+[personal access token]: https://docs.github.com/en/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages
