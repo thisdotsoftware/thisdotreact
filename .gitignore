@@ -1,5 +1,6 @@
 node_modules
 public
+dist
 
 .vscode
 .DS_Store
@@ -7,4 +8,5 @@ public
 .firebaserc
 .firebase
 
+TODO
 *.log

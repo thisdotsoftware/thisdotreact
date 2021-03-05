@@ -1,37 +1,28 @@
 /* eslint-env node */
 
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {
+  devtool: "hidden-source-map",
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "app.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, "dist"),
+    filename: "thisdotreact.min.js",
+    library: "thisdotreact",
+    libraryTarget: "umd",
   },
   module: {
     rules: [{ test: /\.js$/, use: "babel-loader" }],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: "Cheapskate Tools",
-      template: "./src/index.html",
-    }),
-    new CopyPlugin({
-      patterns: [{ from: "static", to: "" }],
-    }),
+  plugins: [new CleanWebpackPlugin()],
+  externals: [
+    "prop-types",
+    "react",
+    "react-router",
+    "react-router-dom",
+    "styled-components",
   ],
-  devServer: {
-    port: 3000,
-    contentBase: "./static",
-    hot: true,
-    historyApiFallback: {
-      index: "index.html",
-    },
-  },
 };
 
 module.exports = config;
