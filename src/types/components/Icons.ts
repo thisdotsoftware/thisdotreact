@@ -1,6 +1,3 @@
-// fixes error when using the css prop
-import {} from "styled-components/cssprop";
-
 type ThemeColor =
   | "primary-main"
   | "primary-100"

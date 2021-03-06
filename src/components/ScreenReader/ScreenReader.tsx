@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled, { css } from "styled-components";
 
 import {
@@ -31,7 +31,7 @@ export const ScreenReader = ({
   showOnFocus = false,
   children,
   ...props
-}: ScreenReaderProps) => (
+}: ScreenReaderProps): JSX.Element => (
   <Hidden as={as} showOnFocus={showOnFocus} {...props}>
     {children}
   </Hidden>

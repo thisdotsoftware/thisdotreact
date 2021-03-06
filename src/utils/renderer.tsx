@@ -1,4 +1,6 @@
-import React, { ComponentType, ReactElement, ReactNode } from "react";
+/* eslint-disable no-restricted-imports */
+
+import * as React from "react";
 import { render as rtlRender, RenderOptions } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
@@ -22,7 +24,7 @@ interface Options extends RenderOptions {
  * Use the `options` parameter to override the defaults for these providers.
  */
 function render(
-  ui: ReactElement,
+  ui: React.ReactElement,
   options: Options
 ): ReturnType<typeof rtlRender> {
   const {
@@ -31,7 +33,11 @@ function render(
     ...renderOptions
   } = options;
 
-  const Wrapper: ComponentType = ({ children }) => {
+  const Wrapper: React.ComponentType = ({
+    children,
+  }: {
+    children?: React.ReactNode;
+  }): JSX.Element => {
     return (
       <MemoryRouter initialEntries={initialEntries} initialIndex={initialIndex}>
         {children}

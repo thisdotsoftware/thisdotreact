@@ -1,6 +1,7 @@
 node_modules
 public
-dist
+cjs
+esm
 
 .vscode
 .DS_Store

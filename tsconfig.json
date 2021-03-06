@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    /**
+     * We expose this.react in two different formats: CommonJS and ES Module.
+     * We do this in two steps:
+     *
+     * 1) Run `tsc` to compile to JSX-flavoured ES Module (and output the type
+     *    declaration files).
+     * 2) Run `webpack` to transpile to CommonJS (babel removes the TypeScript).
+     *
+     * Our package.json then has a "main" setting for CommonJS, and "module"
+     * setting for ES Modules, so consumers can choose their preferred format.
+     *
+     * NOTE: because we preserve JSX, consumers need to transpile the JSX
+     * themselves when importing. This is fairly easy to do with webpack/babel
+     * (see the README for instructions).
+     */
+    "jsx": "preserve",
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
+
+    // @TODO: Can we add a rule to ban JS files?
+    "allowJs": true,
+    "checkJs": true,
+
+    // Output the declaration files
+    "declaration": true,
+    "outDir": "./esm",
+
+    // We're starting as strict as possible, we can disable rules as we need to
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Prevents errors causes by casing differences per OS
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./src/**/*"]
+}

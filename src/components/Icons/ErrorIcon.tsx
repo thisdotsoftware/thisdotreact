@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import type { BasicIconProps } from "../../types/components/Icons";
 
@@ -7,7 +7,7 @@ export const ErrorIcon = ({
   height = 24,
   color = "primary-main",
   ...props
-}: BasicIconProps) => (
+}: BasicIconProps): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

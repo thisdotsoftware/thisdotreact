@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled, { css } from "styled-components";
 
 import { InfoIcon } from "../Icons/InfoIcon";
@@ -68,7 +68,7 @@ const Text = styled.p`
 /**
  * Highlights key pieces of information to the user.
  */
-export const Alert = ({ kind = "info", children }: AlertProps) => (
+export const Alert = ({ kind = "info", children }: AlertProps): JSX.Element => (
   <Wrapper kind={kind}>
     <Icon>
       {kind === "info" && <InfoIcon />}

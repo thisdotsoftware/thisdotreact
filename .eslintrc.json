@@ -6,21 +6,40 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jest/style",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": ["./tsconfig.json"],
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest", "jest-dom"],
+  "plugins": ["react", "jest", "jest-dom", "@typescript-eslint"],
   "rules": {
-    "jest/no-mocks-import": 0,
+    /**
+     * Allows disabling ESLint rules on an entire file
+     */
+    "eslint-comments/disable-enable-pair": [
+      "error",
+      { "allowWholeFile": true }
+    ],
+
+    /**
+     * Custom rule to force using our render wrapper in unit tests
+     */
     "no-restricted-imports": [
       "error",
       {

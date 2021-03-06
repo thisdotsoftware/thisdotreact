@@ -5,15 +5,18 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const config = {
   devtool: "hidden-source-map",
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "cjs"),
     filename: "thisdotreact.min.js",
     library: "thisdotreact",
     libraryTarget: "umd",
   },
   module: {
-    rules: [{ test: /\.js$/, use: "babel-loader" }],
+    rules: [{ test: /\.(ts|tsx|js|jsx)$/, use: "babel-loader" }],
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
   },
   plugins: [new CleanWebpackPlugin()],
   externals: ["react", "react-router", "react-router-dom", "styled-components"],
