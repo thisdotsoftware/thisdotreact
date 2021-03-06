@@ -60,11 +60,19 @@ has a `babel.config.js` file (not `.babelrc`!) and your webpack config runs
 any `@thisdotsoftware` files through the `babel-loader:
 
 ```js
-// webpack will exclude node_modules by default
-{ test: /\.js$/, use: "babel-loader" }
+module: {
+  rules: [
+    // webpack will exclude node_modules by default
+    { test: /\.js$/, use: "babel-loader" },
 
-// so you need to add a new line specifically for @thisdotsoftware
-{ test: /\.js$/, use: "babel-loader", include: [/@thisdotsoftware/] }
+    // so you need to add a new line specifically for @thisdotsoftware
+    { test: /\.(js|jsx)$/, use: "babel-loader", include: [/@thisdotsoftware/] }
+  ]
+},
+resolve: {
+  // you also need to tell webpack to look for the .jsx extension
+  extensions: [".js", ".jsx", ".json"],
+},
 ```
 
 We also recommend looking at tree shaking for your bundler, so you aren't
