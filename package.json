@@ -2,7 +2,7 @@
   "name": "@thisdotsoftware/react",
   "version": "0.0.1",
   "description": "this.react is a React component library created by this.software to power our customer and colleague experiences, including Cheapskate.",
-  "main": "./dist/index.js",
+  "main": "./dist/thisdotreact.min.js",
   "module": "./src/index.js",
   "author": "Daniel Farrell <highdanbo@gmail.com>",
   "license": "UNLICENSED",
