@@ -1,6 +1,6 @@
 {
   "name": "@thisdotsoftware/react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "this.react is a React component library created by this.software to power our customer and colleague experiences, including Cheapskate.",
   "main": "./cjs/thisdotreact.min.js",
   "module": "./esm/index.js",
