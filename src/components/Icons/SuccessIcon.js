@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const SuccessIcon = ({
+export const SuccessIcon = ({
   width = 24,
   height = 24,
   color = "primary-main",
@@ -20,4 +21,8 @@ const SuccessIcon = ({
   </svg>
 );
 
-export default SuccessIcon;
+SuccessIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  color: PropTypes.string,
+};

@@ -22,7 +22,12 @@ const Hidden = styled.div`
     `}
 `;
 
-const ScreenReader = ({ as, showOnFocus = false, children, ...props }) => (
+export const ScreenReader = ({
+  as,
+  showOnFocus = false,
+  children,
+  ...props
+}) => (
   <Hidden as={as} showOnFocus={showOnFocus} {...props}>
     {children}
   </Hidden>
@@ -33,5 +38,3 @@ ScreenReader.propTypes = {
   showOnFocus: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
-
-export default ScreenReader;

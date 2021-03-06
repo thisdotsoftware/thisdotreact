@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const InfoIcon = ({
+export const InfoIcon = ({
   width = 24,
   height = 24,
   color = "primary-main",
@@ -20,4 +21,8 @@ const InfoIcon = ({
   </svg>
 );
 
-export default InfoIcon;
+InfoIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  color: PropTypes.string,
+};

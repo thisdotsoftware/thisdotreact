@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const ErrorIcon = ({
+export const ErrorIcon = ({
   width = 24,
   height = 24,
   color = "primary-main",
@@ -20,4 +21,8 @@ const ErrorIcon = ({
   </svg>
 );
 
-export default ErrorIcon;
+ErrorIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  color: PropTypes.string,
+};
