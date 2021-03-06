@@ -17,12 +17,14 @@ customer and colleague web experiences across all of our brands, including
 
 ## Installing
 
-You must be a member of our [GitHub organisation], have a [personal access token]
-with the `read:packages` scope, and have an `.npmrc` file in your project that
-is setup for the GitHub package registry. See the [GitHub packages guide] for
-full instructions.
+Create or edit an `.npmrc` file in the same directory as your `package.json`
+to reconcile `@thisdotsoftware` packages with GitHub Packages:
 
-Run the install command.
+```
+@thisdotsoftware:registry=https://npm.pkg.github.com/
+```
+
+Now you'll be able to install the package:
 
 ```sh
 yarn add @thisdotsoftware/react
@@ -37,7 +39,7 @@ example using our Alert component:
 ```js
 import { Alert } from "@thisdotsoftware/react";
 
-const YourReactComponent = () => <Alert kind="info">Hello, world!</Alert>;
+const YourReactApp = () => <Alert kind="success">Hello, world!</Alert>;
 ```
 
 We expose the library in two formats: CommonJS and ESM. Modern bundlers will
@@ -49,23 +51,16 @@ has a `babel.config.js` file (not `.babelrc`!) and your webpack config runs
 any `@thisdotsoftware` files through the `babel-loader:
 
 ```js
-{
-  test: /\.js$/,
-  use: "babel-loader",
-},
-{
-  test: /\.js$/,
-  include: [/@thisdotsoftware/],
-  use: "babel-loader",
-},
+// webpack will exclude node_modules by default
+{ test: /\.js$/, use: "babel-loader" }
+
+// so you need to add a new line specifically for @thisdotsoftware
+{ test: /\.js$/, use: "babel-loader", include: [/@thisdotsoftware/] }
 ```
 
 We also recommend looking at tree shaking for your bundler, so you aren't
-bundling any components that you aren't using.
+shipping the components that you aren't using.
 
 [cheapskate]: https://cheapskate.io
 [this.software]: https://this.software
 [storybook]: https://thisdotreact.web.app
-[github organisation]: https://github.com/thisdotsoftware
-[github packages guide]: https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package
-[personal access token]: https://docs.github.com/en/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages
