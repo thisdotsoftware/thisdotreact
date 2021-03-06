@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+import type { ButtonProps } from "../../types/components/Button";
+
+export const Button = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   gap: 8px;

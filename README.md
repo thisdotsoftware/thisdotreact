@@ -30,6 +30,15 @@ Now you'll be able to install the package:
 yarn add @thisdotsoftware/react
 ```
 
+Finally, you'll need to add [Styled Component's babel plugin] to your babel
+config to support the `css` prop:
+
+```json
+{
+  "plugins": ["babel-plugin-styled-components"]
+}
+```
+
 ## Using
 
 Our components are all documented individually in [Storybook], so head over
@@ -64,3 +73,4 @@ shipping the components that you aren't using.
 [cheapskate]: https://cheapskate.io
 [this.software]: https://this.software
 [storybook]: https://thisdotreact.web.app
+[styled component's babel plugin]: https://styled-components.com/docs/tooling#babel-plugin

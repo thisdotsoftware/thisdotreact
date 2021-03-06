@@ -1,12 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import { ErrorIcon } from "../Icons/InfoIcon";
-import { InfoIcon } from "../Icons/ErrorIcon";
+import { InfoIcon } from "../Icons/InfoIcon";
+import { ErrorIcon } from "../Icons/ErrorIcon";
 import { SuccessIcon } from "../Icons/SuccessIcon";
 
-const Wrapper = styled.div`
+import type {
+  AlertProps,
+  AlertWrapperProps,
+} from "../../types/components/Alert";
+
+const Wrapper = styled.div<AlertWrapperProps>`
   font-size: var(--font-size-body-14);
   line-height: var(--line-height-body-14);
 
@@ -64,7 +68,7 @@ const Text = styled.p`
 /**
  * Highlights key pieces of information to the user.
  */
-export const Alert = ({ kind = "info", children }) => (
+export const Alert = ({ kind = "info", children }: AlertProps) => (
   <Wrapper kind={kind}>
     <Icon>
       {kind === "info" && <InfoIcon />}
@@ -74,10 +78,3 @@ export const Alert = ({ kind = "info", children }) => (
     <Text>{children}</Text>
   </Wrapper>
 );
-
-Alert.propTypes = {
-  kind: PropTypes.oneOf(["info", "error", "success"]),
-
-  /** The alert message. */
-  children: PropTypes.node.isRequired,
-};

@@ -1,8 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-const Hidden = styled.div`
+import {
+  ScreenReaderProps,
+  ScreenReaderHiddenProps,
+} from "../../types/components/ScreenReader";
+
+const Hidden = styled.div<ScreenReaderHiddenProps>`
   position: absolute;
   left: -10000px;
   top: auto;
@@ -27,14 +31,8 @@ export const ScreenReader = ({
   showOnFocus = false,
   children,
   ...props
-}) => (
+}: ScreenReaderProps) => (
   <Hidden as={as} showOnFocus={showOnFocus} {...props}>
     {children}
   </Hidden>
 );
-
-ScreenReader.propTypes = {
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-  showOnFocus: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-};

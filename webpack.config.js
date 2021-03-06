@@ -16,13 +16,7 @@ const config = {
     rules: [{ test: /\.js$/, use: "babel-loader" }],
   },
   plugins: [new CleanWebpackPlugin()],
-  externals: [
-    "prop-types",
-    "react",
-    "react-router",
-    "react-router-dom",
-    "styled-components",
-  ],
+  externals: ["react", "react-router", "react-router-dom", "styled-components"],
 };
 
 module.exports = config;
