@@ -53,6 +53,8 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-jest": "^24.1.5",
@@ -82,5 +84,10 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
