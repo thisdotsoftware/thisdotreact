@@ -1,0 +1,40 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import dedent from "ts-dedent";
+import { ThemeVariables } from "../../index";
+
+<Meta title="Hooks/useQueryParams" />
+
+<ThemeVariables />
+
+# useQueryParams
+
+The `useQueryParams` hook returns a [URLSearchParams] instance containing the
+current page's query parameters. Requires [react-router].
+
+## Example
+
+Showing the current page number using `?id=99` from the page URL.
+
+<Source
+  language="ts"
+  code={dedent`
+    const CurrentPage = (): JSX.Element => {
+      const params: URLSearchParams = useQueryParams();
+      const id: string = params.get("id") || "1";
+      
+      return <p>Current page is {id}</p>;
+    };
+    
+    // the hook must be rendered inside a router
+    const App = (): JSX.Element => {
+      return (
+        <BrowserRouter>
+          <CurrentPage />
+        </BrowserRouter>
+      );
+    };
+`}
+/>
+
+[urlsearchparams]: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+[react-router]: https://reactrouter.com/

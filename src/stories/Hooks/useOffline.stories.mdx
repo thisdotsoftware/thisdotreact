@@ -1,0 +1,37 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import dedent from "ts-dedent";
+import { ThemeVariables } from "../../index";
+
+<Meta title="Hooks/useOffline" />
+
+<ThemeVariables />
+
+# useOffline
+
+The `useOffline` hook detects the user's internet connectivity and listens for
+changes.
+
+> [...] while you can assume that the browser is offline when it returns a
+> false value, you cannot assume that a true value necessarily means that the
+> browser can access the internet. You could be getting false positives [...]
+>
+> _Source: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine_
+
+## Example
+
+Showing a message when the user is offline.
+
+<Source
+  language="ts"
+  code={dedent`
+    const ConnectionWarning = (): JSX.Element | null => {
+      const isOffline: boolean = useOffline();
+      
+      return isOffline
+        ? <p>Connection lost</p>
+        : null;
+    };
+`}
+/>
+
+[urlsearchparams]: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
