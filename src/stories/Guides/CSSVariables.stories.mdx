@@ -1,0 +1,32 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import LinkTo from "@storybook/addon-links/react";
+import dedent from "ts-dedent";
+import { ThemeVariables } from "../../index";
+
+<Meta title="Guides/CSS Variables" component={ThemeVariables} />
+
+<ThemeVariables />
+
+# CSS Variables
+
+<Description of={ThemeVariables} />
+
+<ArgsTable of={ThemeVariables} />
+
+All of our colours are saved in CSS variables, allowing us to support multiple
+brands and special colour schemes such as dark mode and high-contrast.
+
+To add the CSS variables to your page, use the `ThemeVariables` component.
+
+<Source
+  language="js"
+  code={dedent`
+    import { ThemeVariables } from "@thisdotsoftware/react"
+    
+    <ThemeVariables />
+  `}
+/>
+
+See the <LinkTo kind="Foundations/Colour" story="page">Colour</LinkTo> and
+the <LinkTo kind="Foundations/Typography" story="page">Typography</LinkTo> stories for a
+list of CSS variables.
