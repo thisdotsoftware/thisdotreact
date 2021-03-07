@@ -6,10 +6,10 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        "Introduction",
+        "Guides",
+        ["Getting started", "CSS Variables"],
         "Foundations",
         ["Typography", "Colour"],
-        "Guides",
         "Atoms",
         // "Element",
         // "Organism",

@@ -1,5 +1,11 @@
 # Contributing to this.react
 
+While this is an open source project, and we welcome contributions, ultimately
+we implement the this.software design system and any changes to this.react need
+to adhere to the design system. If there's a component you think we're missing,
+feel free to raise an issue (you never know, it may already exist in the design
+system and we haven't gotten to implementing it in React yet).
+
 ## Commits
 
 You can run `yarn cz` instead of `git commit` to get an interactive prompt for

@@ -1,4 +1,4 @@
-import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { Meta, Source, Description } from "@storybook/addon-docs/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import dedent from "ts-dedent";
 import { ThemeVariables } from "../../index";
@@ -11,12 +11,16 @@ import { ThemeVariables } from "../../index";
 
 <Description of={ThemeVariables} />
 
-<ArgsTable of={ThemeVariables} />
+We build our CSS using variables where appropriate, allowing us to support
+custom branding and colour schemes such as dark mode and high-contrast.
 
-All of our colours are saved in CSS variables, allowing us to support multiple
-brands and special colour schemes such as dark mode and high-contrast.
+See the <LinkTo kind="Foundations/Colour" story="page">Colour</LinkTo> and
+the <LinkTo kind="Foundations/Typography" story="page">Typography</LinkTo> stories for a
+list of CSS variables.
 
-To add the CSS variables to your page, use the `ThemeVariables` component.
+## Example
+
+Render the the `ThemeVariables` component anywhere in your app.
 
 <Source
   language="js"
@@ -26,7 +30,3 @@ To add the CSS variables to your page, use the `ThemeVariables` component.
     <ThemeVariables />
   `}
 />
-
-See the <LinkTo kind="Foundations/Colour" story="page">Colour</LinkTo> and
-the <LinkTo kind="Foundations/Typography" story="page">Typography</LinkTo> stories for a
-list of CSS variables.
