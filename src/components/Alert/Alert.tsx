@@ -69,11 +69,11 @@ const Text = styled.p`
  * Highlights key pieces of information to the user.
  */
 export const Alert = ({ kind = "info", children }: AlertProps): JSX.Element => (
-  <Wrapper kind={kind}>
+  <Wrapper kind={kind} data-testid="alert">
     <Icon>
-      {kind === "info" && <InfoIcon />}
-      {kind === "error" && <ErrorIcon />}
-      {kind === "success" && <SuccessIcon />}
+      {kind === "info" && <InfoIcon data-testid="alert-info-icon" />}
+      {kind === "error" && <ErrorIcon data-testid="alert-error-icon" />}
+      {kind === "success" && <SuccessIcon data-testid="alert-success-icon" />}
     </Icon>
     <Text>{children}</Text>
   </Wrapper>

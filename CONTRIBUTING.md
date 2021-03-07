@@ -17,3 +17,31 @@ creating commit messages.
 
 [angular's commit guidelines]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
 [validate-commit-message]: https://github.com/conventional-changelog-archived-repos/validate-commit-msg
+
+## Test IDs
+
+All components should let developers set a custom test ID. This allows
+developers to uniquely identify multiple instances of the same component in
+their tests.
+
+```tsx
+import { DealCard } from "@thisdotsoftware/react";
+
+const App = (): JSX.Element => (
+  <>
+    <DealCard data-testid="deal-123" />
+    <DealCard data-testid="deal-456" />
+  </>
+);
+```
+
+Then, when writing tests, developers can dive deeper into the component by
+prefixing their selectors with their own test ID:
+
+```tsx
+// cypress - clicking a button in the "123" deal card
+cy.get('[data-testid="deal-123"] button').click();
+
+// react testing library - clicking a button in the "456" deal card
+fireEvent.click(screen.getByTestId('[data-testid="deal-456"] button'));
+```

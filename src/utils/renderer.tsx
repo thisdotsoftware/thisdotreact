@@ -25,7 +25,7 @@ interface Options extends RenderOptions {
  */
 function render(
   ui: React.ReactElement,
-  options: Options
+  options: Options = {}
 ): ReturnType<typeof rtlRender> {
   const {
     initialEntries = ["/"],

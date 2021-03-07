@@ -1,3 +1,5 @@
+import * as React from "react";
+
 export type AlertKind = "info" | "success" | "error";
 
 export interface AlertWrapperProps {
@@ -10,5 +12,5 @@ export interface AlertProps {
    */
   kind?: AlertKind;
 
-  children: JSX.Element;
+  children: React.ReactNode;
 }
