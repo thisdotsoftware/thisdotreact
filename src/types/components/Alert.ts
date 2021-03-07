@@ -5,6 +5,10 @@ export interface AlertWrapperProps {
 }
 
 export interface AlertProps {
+  /**
+   * The type of alert. Can be "info", "success" or "error".
+   */
   kind?: AlertKind;
+
   children: JSX.Element;
 }

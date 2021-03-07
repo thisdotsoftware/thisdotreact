@@ -25,7 +25,7 @@
     "========== PRODUCTION ==========": "",
     "build:esm": "rimraf ./esm && tsc",
     "build:cjs": "yarn webpack --mode production",
-    "build:storybook": "build-storybook -o ./public --docs",
+    "build:storybook": "build-storybook -o ./public",
     "deploy": "yarn build:storybook && firebase deploy --only hosting",
     "========= CODE QUALITY =========": "",
     "test": "jest --watch",
